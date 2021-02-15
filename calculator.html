@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculator</title>
+        <meta name="description" content="Calculator">
+        <link rel="stylesheet" type="text/css" href="./styles/style.css"/>
+    </head>
+    <body>
+        <header><h1>Crack the numbers</h1></header>
+        <div class="wrapper">
+            <div class="calculator">
+                <div class="display">
+                    <h2 id ="number-on-screen">100204</h2>
+                </div>
+                <div class="keyboard-container">
+                    <div class="number-container">
+                        <button type="button" class="number-btn" value="7">7</button>
+                        <button type="button" class="number-btn" value="8">8</button>
+                        <button type="button" class="number-btn" value="9">9</button>                      <button type="button" class="number-btn" value="4">4</button>
+                        <button type="button" class="number-btn">5</button>
+                        <button type="button" class="number-btn">6</button>
+                        <button type="button" class="number-btn">1</button>
+                        <button type="button" class="number-btn">2</button>
+                        <button type="button" class="number-btn">3</button>
+                        <button type="button" id="clear-btn">C</button>
+                        <button type="button" class="number-btn">0</button>
+                        <button type="button" class="number-btn">.</button>
+
+                    </div>
+                    <div class="operator-container">
+                        <button type="button" class="operator-btn">+</button>
+                        <button type="button" class="operator-btn">-</button>
+                        <button type="button" class="operator-btn">x</button>
+                        <button type="button" class="operator-btn">/</button>
+                    </div>
+                    <button type="button" id="equal-btn">=</button>
+                </div>
+            </div>
+        </div>
+        <script src="./mathOperators.js"></script>
+        <script src="./btnEvents.js"></script>
+    </body>
+
+</html>
