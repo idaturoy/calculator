@@ -1,1 +1,5 @@
-$calculatorColor:  rgb(70, 7, 109);
+$calculatorColor:  rgb(172, 151, 186);
+
+:root {
+    --my-cool-color: $calculatorColor;
+}
