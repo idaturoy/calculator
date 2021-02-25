@@ -10,7 +10,8 @@
         <div class="wrapper">
             <div class="calculator">
                 <div class="display">
-                    <h2 id="number-on-screen">0</h2>
+                    <div id="history-display"></div>
+                    <div id="work-display"></div>
                 </div>
                 <div class="keyboard-container">
                     <div class="number-container">
@@ -25,7 +26,7 @@
                         <button type="button" class="number-btn">3</button>
                         <button type="button" id="clear-btn">C</button>
                         <button type="button" class="number-btn">0</button>
-                        <button type="button" class="number-btn">.</button>
+                        <button type="button" class="number-btn" id="punctation-btn">.</button>
 
                     </div>
                     <div class="operator-container">
@@ -38,8 +39,7 @@
                 </div>
             </div>
         </div>
-        <script src="./calculatorClass.js"></script>
-        <script src="./btnEvents.js"></script>
+        <script type="module" src="./btnEvents.js"></script>
     </body>
 
 </html>

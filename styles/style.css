@@ -49,24 +49,34 @@ body, html {
 }
 
 .display {
-  width: 100%;
-  min-height: 13rem;
+  max-width: 25rem;
+  min-height: 10rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: wrap;
-      -ms-flex: wrap;
-          flex: wrap;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  padding: 1rem;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.display h2 {
+.display #history-display {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.display #work-display {
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .keyboard-container {
@@ -83,14 +93,15 @@ body, html {
 
 .keyboard-container button {
   background: #ac97ba;
+  cursor: pointer;
   color: white;
   display: inline-block;
   padding: 1.35em 1.2em;
   border: 0.1em solid #c4b8cd;
   border-radius: 0.12em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  /* box-sizing: border-box; */
   text-decoration: none;
+  outline: none;
   min-width: 5rem;
   min-height: 5rem;
 }
