@@ -6,4 +6,5 @@ The project is a part of the Odin Project curriculum, and is a nice project to t
 Next:
 
 #1 is to fill the history part of the display. The calculator can then remember your operation when you hit the equal button or choose a new operator. 
+
 #2 fix bugs.
