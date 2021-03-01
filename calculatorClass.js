@@ -56,6 +56,7 @@ export default class Calculator {
     this.currentValue = "";
     this.previousValue = "";
     this.operator = "";
+    this.memory = ""; 
   }
 
   chooseOperator(chosenOperator) {
@@ -65,12 +66,11 @@ export default class Calculator {
   }
 
   equal() {
-    if (this.previousValue && this.currentValue) {
+    if (this.previousValue && this.currentValue && this.operator) {
       if (this.currentValue === "."){this.currentValue = "0.0";}
+      this.memory = this.toDisplay();
       this.currentValue = this.operate();
-      this.previousValue = ""; 
+      this.previousValue = "";
     }
   }
 }
-
-

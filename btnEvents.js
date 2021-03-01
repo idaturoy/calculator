@@ -31,24 +31,18 @@ operatorBtns.forEach(button =>{
         }
         calculator.chooseOperator(button.innerText);
         displayWork.innerText = calculator.toDisplay();
+        displayHistory.innerText = calculator.memory;
     })
 })
 
 equalBtn.addEventListener("click", () => {
     calculator.equal();
     displayWork.innerText = calculator.currentValue;
+    displayHistory.innerText = calculator.memory;
 });
 
 clearBtn.addEventListener("click", () => {
     calculator.clear();
     displayWork.innerText = calculator.toDisplay();
+    displayHistory.innerText = "";
 });
-
-
-/* function ifDivideByZero(result) {
-    const messageDiv = document.createElement("div");
-    const message = document.createTextNode(result);
-    messageDiv.appendChild(message);
-    const wrapperDiv = document.getElementsByClassName("wrapper")[0];
-    wrapperDiv.appendChild(messageDiv);
-} */

@@ -56,3 +56,27 @@ Deno.test("Division by zero", () => {
 
   assertEquals(calculator.currentValue, "that is a question of time");
 });
+
+Deno.test("Memory", () => {
+  const calculator = new Calculator();
+
+  calculator.updateCurrentValue("20");
+  calculator.chooseOperator("/");
+  calculator.updateCurrentValue("5");
+  calculator.equal();
+
+  assertEquals(calculator.memory, "20 / 5");
+
+  calculator.updateCurrentValue("5");
+  calculator.chooseOperator("-");
+  calculator.updateCurrentValue("50");
+  calculator.equal();
+
+  assertEquals(calculator.memory, "45 - 50");
+
+  calculator.chooseOperator("+");
+  calculator.updateCurrentValue("5.5");
+  calculator.equal();
+
+  assertEquals(calculator.memory, "-5 + 5.5");
+});
