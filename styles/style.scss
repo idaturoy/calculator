@@ -7,13 +7,12 @@
 @import './varibles';
 @import './header';
 
-* {
-    box-sizing: border-box;
-    font-size: 1.1rem;
+span {
+    font-size: 3.2rem;
 }
 
 body, html {
-    background: linear-gradient(45deg, #cea9d5, #a0f1ea);
+    // background: linear-gradient(45deg, #cea9d5, #a0f1ea);
     height: 100vh;
 }
 
@@ -26,12 +25,12 @@ body, html {
 .calculator{
     background: $calculatorColor;
     color: white;
-    min-height: 30rem;
-    min-width: 25rem;
+    min-height: 15rem;
+    min-width: 18rem;
+    border-radius: 0.5rem;
 }
 .display{
-    max-width: 25rem;
-    min-height: 10rem;
+    min-height: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -54,33 +53,32 @@ body, html {
 }
 .keyboard-container{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 
     button {
-        background: $calculatorColor;
+        background: $buttonColor;
         cursor: pointer;
         color: white;
         display: inline-block;
-        padding: 1.35em 1.2em; 
-        border: 0.1em solid rgb(196, 184, 205);
-        border-radius: 0.12em ;
-        /* box-sizing: border-box; */
+        border: 0.1rem solid $buttonColor;
+        border-radius: 2rem ;
         text-decoration: none;
         outline: none;
-        min-width: 5rem;
-        min-height: 5rem;
         &:hover{
-            background: #9bded8;
+            background: $hoverColor;
         }
+        padding: 0.3rem;
+        margin: 0.3rem;
+
     }
     .number-container { 
         display: grid;
-        grid-template-columns: repeat(3, minmax(5rem, 1fr));
+        grid-template-columns: repeat(3, minmax(2rem, 1fr));
+        margin-left: 0.3rem;
     }
     
     .operator-container {
         display: flex; 
         flex-direction: column;
+        
     }
 }

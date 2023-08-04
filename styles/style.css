@@ -1,129 +1,79 @@
-:root {
-  --my-cool-color: $calculatorColor;
-}
-
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background: white;
   height: 20vh;
   color: darkgrey;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: 1.1rem;
+span {
+  font-size: 3.2rem;
 }
 
 body, html {
-  background: linear-gradient(45deg, #cea9d5, #a0f1ea);
   height: 100vh;
 }
 
 .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   height: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .calculator {
-  background: #ac97ba;
+  background: rgb(232, 215, 148);
   color: white;
-  min-height: 30rem;
-  min-width: 25rem;
+  min-height: 15rem;
+  min-width: 18rem;
+  border-radius: 0.5rem;
 }
 
 .display {
-  max-width: 25rem;
-  min-height: 10rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  min-height: 8rem;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
   padding: 1rem;
   word-wrap: break-word;
   word-break: break-all;
 }
-
 .display #history-display {
   font-size: 1.5rem;
   margin-top: 2rem;
   color: rgba(255, 255, 255, 0.6);
 }
-
 .display #work-display {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .keyboard-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
-
 .keyboard-container button {
-  background: #ac97ba;
+  background: rgb(235, 202, 71);
   cursor: pointer;
   color: white;
   display: inline-block;
-  padding: 1.35em 1.2em;
-  border: 0.1em solid #c4b8cd;
-  border-radius: 0.12em;
-  /* box-sizing: border-box; */
+  border: 0.1rem solid rgb(235, 202, 71);
+  border-radius: 2rem;
   text-decoration: none;
   outline: none;
-  min-width: 5rem;
-  min-height: 5rem;
+  padding: 0.3rem;
+  margin: 0.3rem;
 }
-
 .keyboard-container button:hover {
-  background: #9bded8;
+  background: rgb(229, 185, 12);
 }
-
 .keyboard-container .number-container {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(5rem, 1fr))[3];
-      grid-template-columns: repeat(3, minmax(5rem, 1fr));
+  grid-template-columns: repeat(3, minmax(2rem, 1fr));
+  margin-left: 0.3rem;
 }
-
 .keyboard-container .operator-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-/*# sourceMappingURL=style.css.map */
+  flex-direction: column;
+}/*# sourceMappingURL=style.css.map */
