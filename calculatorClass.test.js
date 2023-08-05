@@ -5,78 +5,78 @@ import Calculator from "./calculatorClass.js";
 Deno.test("Addition", () => {
   const calculator = new Calculator();
 
-  calculator.updateCurrentValue("4");
-  calculator.chooseOperator("+");
-  calculator.updateCurrentValue("5");
-  calculator.equal();
+  calculator.firstValue = "4";
+  calculator.operator = "+";
+  calculator.secondValue = "5";
+  let result = calculator.operate();
 
-  assertEquals(calculator.currentValue, "9");
+  assertEquals(result, "9");
 });
 
 Deno.test("Subtraction", () => {
   const calculator = new Calculator();
 
-  calculator.updateCurrentValue("4");
-  calculator.chooseOperator("-");
-  calculator.updateCurrentValue("3");
-  calculator.equal();
+  calculator.firstValue = "4";
+  calculator.operator = "-";
+  calculator.secondValue = "3";
+  let result = calculator.operate();
 
-  assertEquals(calculator.currentValue, "1");
+  assertEquals(result, "1");
 });
 
 Deno.test("Multiplication", () => {
   const calculator = new Calculator();
 
-  calculator.updateCurrentValue("4");
-  calculator.chooseOperator("x");
-  calculator.updateCurrentValue("5");
-  calculator.equal();
+  calculator.firstValue = "4";
+  calculator.operator = "x";
+  calculator.secondValue = "5";
+  let result = calculator.operate();
 
-  assertEquals(calculator.currentValue, "20");
+  assertEquals(result, "20");
 });
 
 Deno.test("Division", () => {
   const calculator = new Calculator();
 
-  calculator.updateCurrentValue("20");
-  calculator.chooseOperator("/");
-  calculator.updateCurrentValue("5");
-  calculator.equal();
+  calculator.firstValue = "20";
+  calculator.operator = "/";
+  calculator.secondValue = "5";
+  let result = calculator.operate();
 
-  assertEquals(calculator.currentValue, "4");
+  assertEquals(result, "4");
 });
 
 Deno.test("Division by zero", () => {
   const calculator = new Calculator();
 
-  calculator.updateCurrentValue("20");
-  calculator.chooseOperator("/");
-  calculator.updateCurrentValue("0");
-  calculator.equal();
+  calculator.firstValue = "20";
+  calculator.operator = "/";
+  calculator.secondValue = "0";
+  let result = calculator.operate();
 
-  assertEquals(calculator.currentValue, "that is a question of time");
+  assertEquals(result, "NaN");
 });
 
-Deno.test("Memory", () => {
+Deno.test("Decimal numbers", () => {
   const calculator = new Calculator();
 
-  calculator.updateCurrentValue("20");
-  calculator.chooseOperator("/");
-  calculator.updateCurrentValue("5");
-  calculator.equal();
+  calculator.firstValue = "20.3";
+  calculator.operator = "/";
+  calculator.secondValue = "5";
+  let result = calculator.operate();
 
-  assertEquals(calculator.memory, "20 / 5");
+  assertEquals(result, "4.06");
 
-  calculator.updateCurrentValue("5");
-  calculator.chooseOperator("-");
-  calculator.updateCurrentValue("50");
-  calculator.equal();
+  calculator.firstValue = "5.5";
+  calculator.operator = "-";
+  calculator.secondValue = "50";
+  result = calculator.operate();
 
-  assertEquals(calculator.memory, "45 - 50");
+  assertEquals(result, "-44.5");
 
-  calculator.chooseOperator("+");
-  calculator.updateCurrentValue("5.5");
-  calculator.equal();
+  calculator.operator = "+";
+  calculator.secondValue = "5.5";
+  result = calculator.operate();
 
-  assertEquals(calculator.memory, "-5 + 5.5");
+  assertEquals(result, "11");
 });
