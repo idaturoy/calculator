@@ -1,76 +1,36 @@
 export default class Calculator {
-  constructor({ num1 = "", num2 = "", operator = "", memory = ""}= {}) {
-    this.currentValue = num2;
-    this.previousValue = num1;
+  constructor({ firstValue = "", operator = "", secondValue = "", memory = ""}= {}) {
+    this.firstValue = firstValue;
+    this.secondValue = secondValue;
     this.operator = operator;
     this.memory = memory;
   }
+  
   operate() {
     let computation;
-    const pNumber = Number(this.previousValue);
-    const cNumber = Number(this.currentValue);
+    const firstValue = Number(this.firstValue);
+    const secondValue = Number(this.secondValue);
 
-    switch (this.operator) {
-      case "+":
-        computation = pNumber + cNumber;
+    switch (true) {
+      case (this.operator === "+"):
+        computation = firstValue + secondValue;
         break;
-      case "-":
-        computation = pNumber - cNumber;
+      case (this.operator === "-"):
+        computation = firstValue - secondValue;
         break;
-      case "x":
-        computation = pNumber * cNumber;
+      case (this.operator === "x"):
+        computation = firstValue * secondValue;
         break;
-      case "/":
-        computation = cNumber === 0
-          ? "that is a question of time"
-          : pNumber / cNumber;
+      case (this.operator === "/" && secondValue === 0):
+        computation = NaN;
+        break;
+      case (this.operator === "/"):
+        computation = firstValue / secondValue;
         break;
     }
-    return String(computation);
+    return String(Number(computation.toFixed(2)));
   }
 
-  updateCurrentValue(eventTarget) {
-    if (
-      eventTarget === "." && (this.currentValue).includes(".") ||
-      eventTarget === "0" && this.currentValue === "0"
-    ) {
-      return;
-    } else {
-      this.currentValue += eventTarget;
-    }
-  }
 
-  toDisplay() {
-    let currentCalculation;
-    if (!this.operator){
-      currentCalculation = this.currentValue;
-    } else {
-      currentCalculation = this.previousValue + " " + this.operator + " " +
-      this.currentValue;
-    }
-    
-    return currentCalculation;
-  }
 
-  clear() {
-    this.currentValue = "";
-    this.previousValue = "";
-    this.operator = "";
-    this.memory = ""; 
-  }
-
-  chooseOperator(chosenOperator) {
-    this.operator = chosenOperator;
-    this.previousValue = this.currentValue;
-    this.currentValue = "";
-  }
-
-  equal() {
-    if (this.previousValue && this.currentValue && this.operator) {
-      if (this.currentValue === "."){this.currentValue = "0.0";}
-      this.memory = this.toDisplay();
-      this.currentValue = this.operate();
-      this.previousValue = "";
-    }
-  }
 }
