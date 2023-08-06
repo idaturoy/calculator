@@ -30,7 +30,4 @@ export default class Calculator {
     }
     return String(Number(computation.toFixed(2)));
   }
-
-
-
 }
