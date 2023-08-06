@@ -10,7 +10,7 @@
 span {
     font-size: 3rem;
 }
-
+* { box-sizing: border-box; }
 body, html {
     // background: linear-gradient(45deg, #cea9d5, #a0f1ea);
     height: 100vh;
@@ -72,6 +72,9 @@ body, html {
             background: $hoverColor;
         }
         margin: 0.2rem;
+        // Avoid zoom at double tap
+        touch-action: manipulation;
+
     }
 
     #equal-btn {
