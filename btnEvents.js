@@ -3,6 +3,8 @@ const workDisplay = document.getElementById("work-display");
 const memoryDisplay = document.getElementById("history-display");
 const numberBtns = document.querySelectorAll("button.number-btn");
 const operatorBtns = document.querySelectorAll("button.operator-btn");
+const percentBtn = document.getElementById("percent-btn");
+const negativeBtn = document.getElementById("negative-btn");
 const equalBtn = document.getElementById("equal-btn");
 
 import Calculator from './calculatorClass.js';
@@ -23,6 +25,16 @@ operatorBtns.forEach(button => {
         updateDisplay();
     })
 })
+
+percentBtn.addEventListener("click", () => {
+    clickPercentBtn();
+    updateDisplay();
+});
+
+negativeBtn.addEventListener("click", () => {
+    clickNegativeBtn();
+    updateDisplay();
+});
 
 equalBtn.addEventListener("click", () => {
     let result = clickEqualBtn();
@@ -84,23 +96,19 @@ function clickEqualBtn() {
 }
 
 function clickNumberBtn(userInput) {
-    let updatedValue;
-    if(!calculator.operator) {
-        updatedValue = updateCurrentValue(calculator.firstValue,userInput);
-        calculator.firstValue = updatedValue;
+    let currentValue = getCurrentValue();
+    if (currentValue.length < 10) {
+        let updatedValue;
+        if(!calculator.operator) {
+            updatedValue = updateCurrentValue(calculator.firstValue,userInput);
+            calculator.firstValue = updatedValue;
+        }
+        else {
+            updatedValue = updateCurrentValue(calculator.secondValue,userInput);
+            calculator.secondValue = updatedValue;
+        }
     }
-    else {
-        updatedValue = updateCurrentValue(calculator.secondValue,userInput);
-        calculator.secondValue = updatedValue;
-    }
-};
 
-function updateCurrentValue(value, userInput) {
-    if (userInput === "." && (value).includes(".") || userInput === "0" && value === "0") { 
-        return;
-    } else {
-        return value += userInput;
-    }
 };
 
 function clickOperatorBtn(chosenOperator) {
@@ -116,3 +124,38 @@ function clickOperatorBtn(chosenOperator) {
         memoryDisplay.innerText = calculator.memory;
     }
 };
+
+function updateCurrentValue(value, userInput) {
+    if (userInput === "." && (value).includes(".") || userInput === "0" && value === "0") { 
+        return;
+    } else {
+        return value += userInput;
+    }
+};
+
+function getCurrentValue() {
+    if(!calculator.operator) {
+        return calculator.firstValue;
+    }
+    else {
+        return calculator.secondValue;
+    }
+};
+
+function clickPercentBtn() {
+    if(!calculator.operator) {
+        calculator.firstValue = calculator.firstValue / 100;
+    }
+    else {
+        calculator.secondValue = calculator.secondValue / 100;
+    }
+}
+
+function clickNegativeBtn(){
+    if(!calculator.operator) {
+        calculator.firstValue = calculator.firstValue * (-1);
+    }
+    else {
+        calculator.secondValue = calculator.secondValue * (-1);
+    }
+}

@@ -8,30 +8,34 @@ header {
 }
 
 span {
-  font-size: 3.2rem;
+  font-size: 3rem;
 }
 
 body, html {
   height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
   height: 100%;
+  width: 100%;
   align-items: center;
 }
 
 .calculator {
   background: rgb(232, 215, 148);
   color: white;
-  min-height: 15rem;
-  min-width: 18rem;
-  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .display {
-  min-height: 8rem;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -41,39 +45,40 @@ body, html {
   word-break: break-all;
 }
 .display #history-display {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-top: 2rem;
   color: rgba(255, 255, 255, 0.6);
 }
 .display #work-display {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 .keyboard-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(2rem, 1fr));
+  height: 60%;
 }
 .keyboard-container button {
   background: rgb(235, 202, 71);
   cursor: pointer;
   color: white;
-  display: inline-block;
-  border: 0.1rem solid rgb(235, 202, 71);
-  border-radius: 2rem;
-  text-decoration: none;
-  outline: none;
-  padding: 0.3rem;
-  margin: 0.3rem;
+  border: 0.2rem solid rgb(235, 202, 71);
+  border-radius: 1rem;
+  margin: 0.2rem;
 }
 .keyboard-container button:hover {
   background: rgb(229, 185, 12);
 }
-.keyboard-container .number-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(2rem, 1fr));
-  margin-left: 0.3rem;
+.keyboard-container #equal-btn {
+  grid-column: 3/span 2;
 }
-.keyboard-container .operator-container {
-  display: flex;
-  flex-direction: column;
+
+@media screen and (min-width: 1024px) {
+  .calculator {
+    width: 60%;
+  }
+  .display {
+    font-size: 8vw;
+  }
 }/*# sourceMappingURL=style.css.map */
